@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.zql.springcloud</groupId>
+  <artifactId>springcloud</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <!-- 使用spring-boot -->
+  	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.4.RELEASE</version>
+		
+	</parent>
+	<properties>
+		<!-- <spring-data-releasetrain.version>Fowler-SR2</spring-data-releasetrain.version> -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<spring.version>4.3.3.RELEASE</spring.version>
+		<junit.version>3.8.1</junit.version>
+		<!--  使用 java 1.8  -->
+		<java.version>1.8</java.version>
+	</properties>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-log4j12</artifactId>
+				<version>1.7.5</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>1.7.5</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	<repositories>
+        <repository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>http://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>http://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+</pluginRepositories>
+	<build>
+		<!-- 配置java版本 不配置的话默认父类配置1.6-->
+	    <pluginManagement>
+	      <plugins>
+	        <plugin>
+	          <artifactId>maven-compiler-plugin</artifactId>
+	          <configuration>
+	            <source>${java.version}</source>
+	            <target>${java.version}</target>
+	          </configuration>
+	        </plugin>
+	      </plugins>
+	    </pluginManagement>
+	</build>
+  <modules>
+    <module>z-eureka-client</module>
+    <module>z-eureka-server</module>
+  </modules>
+</project>
